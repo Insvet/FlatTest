@@ -1,18 +1,19 @@
 package Start;
 
 import FlaNium.WinAPI.elements.*;
+import FlaNium.WinAPI.enums.BasePoint;
 import FlaNium.WinAPI.webdriver.DesktopOptions;
 import FlaNium.WinAPI.webdriver.FlaNiumDriver;
 import FlaNium.WinAPI.webdriver.FlaNiumDriverService;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 import java.io.File;
 
-public class FlaniumStart {
+public class Profile {
     static String DRIVER_PATH = "C:\\Users\\AdminTst\\IdeaProjects\\FlatTest\\src\\main\\resources\\FlaNium.Desktop.Driver-v1.6.0/FlaNium.Driver.exe";
     static String APP_PATH = "C:\\Program Files\\Security Code\\Continent ZTN Client/ZtnClient.exe";
-    static int driverPort = 9998;
+    static int driverPort = 9997;
+
     public static void main(String[] args) throws InterruptedException {
         FlaNiumDriverService service = new FlaNiumDriverService.Builder()
                 // Указание пути до драйвера
@@ -28,7 +29,7 @@ public class FlaniumStart {
 // Инициализация приложения:
         DesktopOptions options = new DesktopOptions();
 // Указание пути до тестируемого приложения
-        options.setApplicationPath(String.valueOf(new  File(APP_PATH)));
+        options.setApplicationPath(String.valueOf(new File(APP_PATH)));
 // Задержка после запуска приложения (сек)
         options.setLaunchDelay(10);
 
@@ -36,44 +37,35 @@ public class FlaniumStart {
         options.setDebugConnectToRunningApp(true);
 
 // Получение экземпляра драйвера приложения
-        FlaNiumDriver driver = new FlaNiumDriver(service,options);
+        FlaNiumDriver driver = new FlaNiumDriver(service, options);
 
-//        Button window = new Button(driver.findElement(By.xpath(" //*[(@Name = 'Продолжить без регистрации')] ")));
-//        window.invoke();
-//        window.click();
+//        Button label = new Button(driver.findElement(By.xpath(" //TabItem/Table")));
+//        label.mouseMove(BasePoint.CENTER_BOTTOM,770,45);
 
-//        TabItem trey = new TabItem(driver.findElement(By.xpath(" //*[(@Name = 'О программе')] ")));
-//        trey.click();
+//        TreeItem test = new TreeItem(driver.findElement(By.xpath(" //Pane[2]/Pane/Pane[1]/Tree/TreeItem/TreeItem[1]/TreeItem[1]")));
+//        test.click();
 
-//        Thread.sleep(5000);
-//
-//        TabItem button = new TabItem(driver.findElement(By.xpath(" //*[(@Name = 'Настройки')] ")));
-//        button.click();
-//
-//        TabItem konf = new TabItem(driver.findElement(By.xpath(" //*[(@Name = 'Прокси')] ")));
-//        konf.click();
+        Button add = new Button(driver.findElement(By.xpath("//TabItem/ToolBar/Button[3]")));
+        add.click();
 
-//        Button exit = new Button(driver.findElement(By.xpath(" //Window/Group/Button[2] ")));
-//        exit.invoke();
+        driver.findElement(By.xpath("Window/Group/TabItem/Edit")).sendKeys("java_test");
 
+        ComboBox cert = new ComboBox(driver.findElement(By.xpath("//Window/Group/TabItem/ComboBox[3]")));
+//        cert.mouseMove(BasePoint.CENTER,0,0);
+        cert.click();
+        cert.mouseClick(BasePoint.CENTER_BOTTOM,0,10);
 
-//        driver.findElement(By.xpath(" //Window/Group/Edit[1] "))
-//                .sendKeys("172.17.117.117");
+        Button ip = new Button(driver.findElement(By.xpath("Window/Group/TabItem/ToolBar[2]/Button[1]")));
+        ip.click();
 
-//        Button impt = new Button(driver.findElement(By.xpath(" //*[(@Name = 'Импортировать')] ")));
-//        impt.click();
-//
-//        Thread.sleep(3000);
-//
-//        TreeItem download = new TreeItem(driver.findElement(By.xpath(" //*[(@Name = 'Загрузки (закреплено)')] ")));
-//        download.click();
-//
-//        Button action = new Button(driver.findElement(By.xpath(" //*[(@ControlType = 'ListItem')] ")));
-//        action.invoke();
-//
-//
-//        Button yes = new Button(driver.findElement(By.xpath(" //*[(@Name = 'Да')] ")));
-//        yes.click();
+        driver.findElement(By.xpath("Window[2]/Group/TabItem/Edit[1]")).sendKeys("172.17.117.117");
+
+        Button select = new Button(driver.findElement(By.xpath("//Window[2]/Group/TabItem/ToolBar/Button[1]")));
+        select.click();
+
+        Button save = new Button(driver.findElement(By.xpath("//Window/Group/TabItem/ToolBar[1]/Button[1]")));
+        save.click();
+
 
 
     }
