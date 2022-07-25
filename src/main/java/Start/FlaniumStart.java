@@ -1,9 +1,6 @@
 package Start;
 
-import FlaNium.WinAPI.elements.Button;
-import FlaNium.WinAPI.elements.ComboBox;
-import FlaNium.WinAPI.elements.TabItem;
-import FlaNium.WinAPI.elements.Window;
+import FlaNium.WinAPI.elements.*;
 import FlaNium.WinAPI.webdriver.DesktopOptions;
 import FlaNium.WinAPI.webdriver.FlaNiumDriver;
 import FlaNium.WinAPI.webdriver.FlaNiumDriverService;
@@ -15,8 +12,8 @@ import java.io.File;
 public class FlaniumStart {
     static String DRIVER_PATH = "C:\\Users\\AdminTst\\IdeaProjects\\FlatTest\\src\\main\\resources\\FlaNium.Desktop.Driver-v1.6.0/FlaNium.Driver.exe";
     static String APP_PATH = "C:\\Program Files\\Security Code\\Continent ZTN Client/ZtnClient.exe";
-    static int driverPort = 9999;
-    public static void main(String[] args) {
+    static int driverPort = 9998;
+    public static void main(String[] args) throws InterruptedException {
         FlaNiumDriverService service = new FlaNiumDriverService.Builder()
                 // Указание пути до драйвера
                 .usingDriverExecutable(new File(DRIVER_PATH).getAbsoluteFile())
@@ -36,16 +33,42 @@ public class FlaniumStart {
         options.setLaunchDelay(10);
 
 // Подключение к ранее запущенному экземпляру приложения
-        options.setDebugConnectToRunningApp(false);
+        options.setDebugConnectToRunningApp(true);
 
 // Получение экземпляра драйвера приложения
-        FlaNiumDriver driver = new FlaNiumDriver(service, options);
+        FlaNiumDriver driver = new FlaNiumDriver(service,options);
 
-        Button window = new Button(driver.findElement(By.xpath(" //Button[last()] ")));
-        window.click();
-        options.setLaunchDelay(10);
-        Button button = new Button(driver.findElement(By.xpath("//ToolBar[1]")));
+//        Button window = new Button(driver.findElement(By.xpath(" //*[(@Name = 'Продолжить без регистрации')] ")));
+//        window.invoke();
+//        window.click();
+
+//        Button trey = new Button(driver.findElement(By.xpath(" //*[(@AutomationId = 'Microsoft.Windows.Explorer')] ")));
+//        trey.click();
+
+        Thread.sleep(5000);
+
+        TabItem button = new TabItem(driver.findElement(By.xpath(" //*[(@Name = 'Настройки')] ")));
         button.click();
+
+        TabItem konf = new TabItem(driver.findElement(By.xpath(" //*[(@Name = 'Конфигурация')] ")));
+        konf.click();
+
+        Button impt = new Button(driver.findElement(By.xpath(" //*[(@Name = 'Импортировать')] ")));
+//        impt.invoke();
+        impt.click();
+
+        Thread.sleep(3000);
+
+        TreeItem download = new TreeItem(driver.findElement(By.xpath(" //*[(@Name = 'Загрузки (закреплено)')] ")));
+        download.click();
+
+        Button action = new Button(driver.findElement(By.xpath(" //*[(@ControlType = 'ListItem')] ")));
+        action.invoke();
+//        action.click();
+
+        Button yes = new Button(driver.findElement(By.xpath(" //*[(@Name = 'Да')] ")));
+        yes.click();
+
 
     }
 }
