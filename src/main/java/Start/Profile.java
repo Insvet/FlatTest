@@ -32,26 +32,20 @@ public class Profile {
         options.setApplicationPath(String.valueOf(new File(APP_PATH)));
 // Задержка после запуска приложения (сек)
         options.setLaunchDelay(10);
-
 // Подключение к ранее запущенному экземпляру приложения
         options.setDebugConnectToRunningApp(true);
-
 // Получение экземпляра драйвера приложения
         FlaNiumDriver driver = new FlaNiumDriver(service, options);
-
-//        Button label = new Button(driver.findElement(By.xpath(" //TabItem/Table")));
-//        label.mouseMove(BasePoint.CENTER_BOTTOM,770,45);
-
-//        TreeItem test = new TreeItem(driver.findElement(By.xpath(" //Pane[2]/Pane/Pane[1]/Tree/TreeItem/TreeItem[1]/TreeItem[1]")));
-//        test.click();
 
         Button add = new Button(driver.findElement(By.xpath("//TabItem/ToolBar/Button[3]")));
         add.click();
 
+        Button field = new Button(driver.findElement(By.xpath(" //TabItem/ToolBar/Button[3]")));
+        field.invoke();
+
         driver.findElement(By.xpath("Window/Group/TabItem/Edit")).sendKeys("java_test");
 
         ComboBox cert = new ComboBox(driver.findElement(By.xpath("//Window/Group/TabItem/ComboBox[3]")));
-//        cert.mouseMove(BasePoint.CENTER,0,0);
         cert.click();
         cert.mouseClick(BasePoint.CENTER_BOTTOM,0,10);
 
@@ -65,8 +59,6 @@ public class Profile {
 
         Button save = new Button(driver.findElement(By.xpath("//Window/Group/TabItem/ToolBar[1]/Button[1]")));
         save.click();
-
-
 
     }
 }
