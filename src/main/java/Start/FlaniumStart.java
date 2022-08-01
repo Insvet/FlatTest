@@ -11,7 +11,7 @@ import java.io.File;
 public class FlaniumStart {
     static String DRIVER_PATH = "C:\\Users\\AdminTst\\IdeaProjects\\FlatTest\\src\\main\\resources\\FlaNium.Desktop.Driver-v1.6.0/FlaNium.Driver.exe";
     static String APP_PATH = "C:\\Program Files\\Security Code\\Continent ZTN Client/ZtnClient.exe";
-    static int driverPort = 9998;
+    static int driverPort = 9991;
     public static void main(String[] args) throws InterruptedException {
         FlaNiumDriverService service = new FlaNiumDriverService.Builder()
                 // Указание пути до драйвера
@@ -44,10 +44,21 @@ public class FlaniumStart {
         TabItem konf = new TabItem(driver.findElement(By.xpath(" //*[(@Name = 'Конфигурация')] ")));
         konf.click();
 
+//        Button impt = new Button(driver.findElement(By.xpath(" //Window/Group/Button[2] ")));
+//        impt.click();
+
         Button impt = new Button(driver.findElement(By.xpath(" //*[(@Name = 'Импортировать')] ")));
         impt.click();
 
-        Thread.sleep(2000);
+//        Button pt = new Button(driver.findElement(By.xpath("//Window[1]/Pane[2]/Pane[3]/ProgressBar/Pane")));
+//        pt.click();
+//
+//        driver.findElement(By.xpath("//Window[1]/Pane[2]/Pane[3]/ProgressBar/Pane")).sendKeys("C:\\Users\\AdminTst\\Downloads");
+
+        Thread.sleep(3000);
+
+//        TreeItem download = new TreeItem(driver.findElement(By.xpath(" //Window[1]/Pane[1]/Pane[1]/Tree/TreeItem/TreeItem[1]/TreeItem[2] ")));
+//        download.click();
 
         TreeItem download = new TreeItem(driver.findElement(By.xpath(" //*[(@Name = 'Загрузки (закреплено)')] ")));
         download.click();
@@ -57,6 +68,26 @@ public class FlaniumStart {
 
         Button yes = new Button(driver.findElement(By.xpath(" //*[(@Name = 'Да')] ")));
         yes.click();
+
+        TreeItem cert = new TreeItem(driver.findElement(By.xpath(" //*[(@Name = 'test8_win11_2 (18-07-2022 17:24:08)')] ")));
+        cert.click();
+
+//        Button agree = new Button(driver.findElement(By.xpath(" //Window[1]/Button[3] ")));
+//        agree.click();
+
+        Button agree = new Button(driver.findElement(By.xpath(" //*[(@Name = 'ОК')] ")));
+        agree.click();
+
+        Thread.sleep(3000);
+
+        Button close = new Button(driver.findElement(By.xpath(" //Window[2]/TabItem/Group[1]/Button ")));
+        close.click();
+
+//        Button close = new Button(driver.findElement(By.xpath(" //*[(@Name = 'Закрыть')] ")));
+//        close.click();
+
+        Button exit = new Button(driver.findElement(By.xpath( " //Window/Button ")));
+        exit.click();
 
     }
 }
