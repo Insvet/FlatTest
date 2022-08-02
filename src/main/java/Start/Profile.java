@@ -12,6 +12,10 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.Inet4Address;
+import java.net.InetAddress;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 public class Profile {
@@ -19,7 +23,7 @@ public class Profile {
     static String APP_PATH = "C:\\Program Files\\Security Code\\Continent ZTN Client/ZtnClient.exe";
     static int driverPort = 9992;
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, MalformedURLException {
         FlaNiumDriverService service = new FlaNiumDriverService.Builder()
                 // Указание пути до драйвера
                 .usingDriverExecutable(new File(DRIVER_PATH).getAbsoluteFile())
@@ -30,6 +34,7 @@ public class Profile {
                 // Отключение логирования
                 .withSilent(false)
                 .buildDesktopService();
+
 
 // Инициализация приложения:
         DesktopOptions options = new DesktopOptions();
@@ -85,6 +90,7 @@ public class Profile {
 
         Button connect = new Button(driver.findElement(By.xpath(" //TabItem/ToolBar/Button[1]")));
         connect.click();
+
 
     }
 }
