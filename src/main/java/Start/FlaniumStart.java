@@ -13,7 +13,7 @@ import java.io.File;
 public class FlaniumStart {
     static String DRIVER_PATH = "C:\\Users\\AdminTst\\IdeaProjects\\FlatTest\\src\\main\\resources\\FlaNium.Desktop.Driver-v1.6.0/FlaNium.Driver.exe";
     static String APP_PATH = "C:\\Program Files\\Security Code\\Continent ZTN Client/ZtnClient.exe";
-    static int driverPort = 9991;
+    static int driverPort = 9990;
 
     public static void main(String[] args) throws InterruptedException {
         FlaNiumDriverService service = new FlaNiumDriverService.Builder()
@@ -51,17 +51,6 @@ public class FlaniumStart {
         Button impt = new Button(driver.findElement(By.xpath(" //Window/Group/Button[2] ")));
         impt.click();
 
-//        Thread.sleep(3000);
-
-//        Button impt = new Button(driver.findElement(By.xpath(" //*[(@Name = 'Импортировать')] ")));
-//        impt.invoke();
-//        impt.click();
-
-//        Button pt = new Button(driver.findElement(By.xpath("//Window[1]/Pane[2]/Pane[3]/ProgressBar/Pane")));
-//        pt.click();
-//
-//        driver.findElement(By.xpath("//Window[1]/Pane[2]/Pane[3]/ProgressBar/Pane")).sendKeys("C:\\Users\\AdminTst\\Downloads");
-
         Thread.sleep(1000);
 
 //        TreeItem download = new TreeItem(driver.findElement(By.xpath(" //Window[1]/Pane[1]/Pane[1]/Tree/TreeItem/TreeItem[1]/TreeItem[2] ")));
@@ -69,8 +58,6 @@ public class FlaniumStart {
 
         TreeItem download = new TreeItem(driver.findElement(By.xpath(" //*[(@Name = 'Загрузки (закреплено)')] ")));
         download.click();
-
-//        Thread.sleep(3000);
 
         Button action = new Button(driver.findElement(By.xpath(" //*[(@ControlType = 'ListItem')] ")));
         action.invoke();
@@ -90,14 +77,11 @@ public class FlaniumStart {
 
         Button agree = new Button(driver.findElement(By.xpath(" //*[(@Name = 'ОК')] ")));
         agree.click();
-//
+
         Thread.sleep(1000);
 
         Button close = new Button(driver.findElement(By.xpath(" //Window[2]/TabItem/Group[1]/Button ")));
         close.click();
-
-//        Button close = new Button(driver.findElement(By.xpath(" //*[(@Name = 'Закрыть')] ")));
-//        close.click();
 
         Button exit = new Button(driver.findElement(By.xpath( " //Window/Button ")));
         exit.click();
@@ -125,10 +109,10 @@ public class FlaniumStart {
             test = driver.findElement(By.xpath(" //*[(@Name = 'Удалить')] "));
         }
         catch (Exception e) {
-            edit.invoke();
+            e.printStackTrace();
         }
         if (test != null) {
-            System.out.print(" --> Cert added ");
+            System.out.print(" --> Cert added");
         }else System.out.println(" --> Cert not added");
     }
 }
