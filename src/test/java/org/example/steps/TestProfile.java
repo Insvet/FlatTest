@@ -1,18 +1,15 @@
-package org.example;
+package org.example.steps;
 
 import FlaNium.WinAPI.elements.*;
 import FlaNium.WinAPI.enums.BasePoint;
 import FlaNium.WinAPI.webdriver.DesktopOptions;
 import FlaNium.WinAPI.webdriver.FlaNiumDriver;
-import org.junit.Test;
 import org.openqa.selenium.By;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 
-public class TestProfile extends FlaniumTest {
-    @Test
+import java.io.File;
+
+public class TestProfile extends InitFlanium {
+
     public void profile() throws InterruptedException {
         DesktopOptions options = new DesktopOptions();
         options.setApplicationPath(String.valueOf(new File(APP_PATH)));
