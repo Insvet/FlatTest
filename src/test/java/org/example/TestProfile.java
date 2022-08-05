@@ -4,27 +4,14 @@ import FlaNium.WinAPI.elements.*;
 import FlaNium.WinAPI.enums.BasePoint;
 import FlaNium.WinAPI.webdriver.DesktopOptions;
 import FlaNium.WinAPI.webdriver.FlaNiumDriver;
-import FlaNium.WinAPI.webdriver.FlaNiumDriverService;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class TestProfile {
-    String DRIVER_PATH = "C:\\Users\\AdminTst\\IdeaProjects\\FlatTest\\src\\main\\resources\\FlaNium.Desktop.Driver-v1.6.0/FlaNium.Driver.exe";
-    String APP_PATH = "C:\\Program Files\\Security Code\\Continent ZTN Client/ZtnClient.exe";
-    int driverPort = 9992;
-    FlaNiumDriverService service = new FlaNiumDriverService.Builder()
-            .usingDriverExecutable(new File(DRIVER_PATH).getAbsoluteFile())
-            .usingPort(driverPort)
-            .withVerbose(false)
-            .withSilent(false)
-            .buildDesktopService();
-
+public class TestProfile extends FlaniumTest {
     @Test
     public void profile() throws InterruptedException {
         DesktopOptions options = new DesktopOptions();
@@ -69,31 +56,32 @@ public class TestProfile {
         connect.click();
 
         Thread.sleep(10000);
-
+/*
         //Проверка подключения
 
         Runtime runtime = Runtime.getRuntime();
         Process process;
 
-//        try {
-//            process = runtime.exec("ping 192.168.100.101");
-//            InputStream is = process.getInputStream();
-//            InputStreamReader isr = new InputStreamReader(is);
-//            BufferedReader br = new BufferedReader(isr);
-//
-//            String line;
-//            StringBuffer sb = new StringBuffer();
-//            while ((line = br.readLine()) != null) {
-//                sb.append(line);
-//            }
-//            System.out.println(sb);
-//
-//            is.close();
-//            isr.close();
-//            br.close();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-    }
 
+        try {
+            process = runtime.exec("ping 192.168.100.101");
+            InputStream is = process.getInputStream();
+            InputStreamReader isr = new InputStreamReader(is);
+            BufferedReader br = new BufferedReader(isr);
+
+            String line;
+            StringBuffer sb = new StringBuffer();
+            while ((line = br.readLine()) != null) {
+                sb.append(line);
+            }
+            System.out.println(sb);
+
+            is.close();
+            isr.close();
+            br.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+*/
+    }
 }

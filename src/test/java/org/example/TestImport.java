@@ -10,17 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import java.io.File;
 
-public class TestImport {
-    String DRIVER_PATH = "C:\\Users\\AdminTst\\IdeaProjects\\FlatTest\\src\\main\\resources\\FlaNium.Desktop.Driver-v1.6.0/FlaNium.Driver.exe";
-    String APP_PATH = "C:\\Program Files\\Security Code\\Continent ZTN Client/ZtnClient.exe";
-    int driverPort = 9991;
-    FlaNiumDriverService service = new FlaNiumDriverService.Builder()
-            .usingDriverExecutable(new File(DRIVER_PATH).getAbsoluteFile())
-            .usingPort(driverPort)
-            .withVerbose(false)
-            .withSilent(false)
-            .buildDesktopService();
-
+public class TestImport extends FlaniumTest {
     @Test
     public void testImp() throws InterruptedException {
         DesktopOptions options = new DesktopOptions();
