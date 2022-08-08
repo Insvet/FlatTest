@@ -10,7 +10,7 @@ import java.io.File;
 
 public class TestProfile extends InitFlanium {
 
-    public void profile() throws InterruptedException {
+    public void profile(){
         DesktopOptions options = new DesktopOptions();
         options.setApplicationPath(String.valueOf(new File(APP_PATH)));
         options.setLaunchDelay(10);
@@ -52,7 +52,6 @@ public class TestProfile extends InitFlanium {
         Button connect = new Button(driver.findElement(By.xpath(" //TabItem/ToolBar/Button[1]")));
         connect.click();
 
-        Thread.sleep(10000);
 /*
         //Проверка подключения
 
