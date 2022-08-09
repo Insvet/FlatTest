@@ -58,7 +58,6 @@ public class TestProfile extends InitFlanium {
         Runtime runtime = Runtime.getRuntime();
         Process process;
 
-
         try {
             process = runtime.exec("ping 192.168.100.101");
             InputStream is = process.getInputStream();

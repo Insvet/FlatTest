@@ -27,7 +27,7 @@ public class TestImport extends InitFlanium {
 
         Thread.sleep(1000);
 
-//        TreeItem download = new TreeItem(driver.findElement(By.xpath(" //Window[1]/Pane[1]/Pane[1]/Tree/TreeItem/TreeItem[1]/TreeItem[2] ")));
+//       TreeItem download = new TreeItem(driver.findElement(By.xpath(" //Window[1]/Pane[1]/Pane[1]/Tree/TreeItem/TreeItem[1]/TreeItem[2] ")));
 //        download.click();
 
         TreeItem download = new TreeItem(driver.findElement(By.xpath(" //*[(@Name = 'Загрузки (закреплено)')] ")));
