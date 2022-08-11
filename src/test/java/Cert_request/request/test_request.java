@@ -1,4 +1,4 @@
-package Cert_request.steps;
+package Cert_request.request;
 
 import FlaNium.WinAPI.elements.*;
 import FlaNium.WinAPI.enums.BasePoint;
@@ -8,8 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import java.io.File;
 
-public class kb_csp extends InitFlaniumCSP{
-
+public class test_request extends InitFlaniumCSP{
     public static void main(String[] args){
         DesktopOptions options = new DesktopOptions();
         options.setApplicationPath(String.valueOf(new File(APP_PATH)));
@@ -93,7 +92,7 @@ public class kb_csp extends InitFlaniumCSP{
             System.out.println("--> SUCCESS! cryptoprovider - CryptoPro (GOST R 34.10-2012) found");
         }else System.out.println("--> ERROR! cryptoprovider - the security code not found");
 
-        new Button(driver.findElement(By.xpath("//Window/Button[3]"))).click();
+        new Button(driver.findElement(By.xpath("//Window/Button[2]"))).click();
 
 //        cert.click();
 //
@@ -114,5 +113,5 @@ public class kb_csp extends InitFlaniumCSP{
 //        next2.click();
 //        next2.click();
 
-    }    //Push
+    }
 }
