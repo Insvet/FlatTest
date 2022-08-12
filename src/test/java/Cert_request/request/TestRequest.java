@@ -4,12 +4,15 @@ import FlaNium.WinAPI.elements.*;
 import FlaNium.WinAPI.enums.BasePoint;
 import FlaNium.WinAPI.webdriver.DesktopOptions;
 import FlaNium.WinAPI.webdriver.FlaNiumDriver;
+import io.qameta.allure.Description;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import java.io.File;
 
-public class test_request extends InitFlaniumCSP{
-    public static void main(String[] args){
+public class TestRequest extends InitFlaniumCSP{
+//    @Test
+    public void test_CSP() {
         DesktopOptions options = new DesktopOptions();
         options.setApplicationPath(String.valueOf(new File(APP_PATH)));
         options.setLaunchDelay(10);
@@ -18,7 +21,6 @@ public class test_request extends InitFlaniumCSP{
 
         TabItem cert = new TabItem(driver.findElement(By.xpath("//ToolBar/Tab/TabItem[3]")));
         cert.click();
-
         TabItem user = new TabItem(driver.findElement(By.xpath("//TabItem/ToolBar/Tab/TabItem[1]")));
         user.click();
 
@@ -34,18 +36,16 @@ public class test_request extends InitFlaniumCSP{
 
         Button request = new Button(driver.findElement(By.xpath("//TabItem/TabItem/ToolBar[1]/Button[1]")));
         request.click();
-
         ComboBox csp = new ComboBox(driver.findElement(By.xpath("//Window/Pane/ComboBox[2]")));
         csp.expand();
         csp.mouseClick(BasePoint.CENTER,0,28);
-
         Button next = new Button(driver.findElement(By.xpath("//*[(@AutomationId = 'nextbutton')]")));
         next.click();
-
         driver.findElement(By.xpath("//*[(@AutomationId ='1012')]")).sendKeys("test");
         next.click();
         next.click();
 
+        //Проверка криптопровайдера
         WebElement name = null;
         try {
             name = driver.findElementByName("Код Безопасности CSP");
@@ -55,6 +55,7 @@ public class test_request extends InitFlaniumCSP{
             System.out.println("--> SUCCESS! cryptoprovider - security code found");
         }else System.out.println("--> ERROR! cryptoprovider - the security code not found");
 
+        //Проверка типа запроса
         WebElement base64 = null;
         try {
             base64 = driver.findElementByName("Двоичные данные");
@@ -65,24 +66,19 @@ public class test_request extends InitFlaniumCSP{
         }else System.out.println("--> ERROR! Not only the 3.x query is available");
 
         new Button(driver.findElement(By.xpath("//Window/Button[3]"))).click();
-
         cert.click();
-
         user.click();
-
         request.click();
-
         ComboBox kb_csp = new ComboBox(driver.findElement(By.xpath("//Window/Pane/ComboBox[1]")));
         kb_csp.expand();
         kb_csp.mouseClick(BasePoint.CENTER,0,28);
-
         Button next2 = new Button(driver.findElement(By.xpath("//*[(@AutomationId = 'nextbutton')]")));
         next2.click();
-
         driver.findElement(By.xpath("//*[(@AutomationId ='1012')]")).sendKeys("test");
         next2.click();
         next2.click();
 
+        //Проверка криптопровайдера КриптоПро
         WebElement cp_csp = null;
         try {
             cp_csp = driver.findElementByName("Сторонний криптопровайдер (ГОСТ Р 34.10-2012)");
@@ -90,28 +86,8 @@ public class test_request extends InitFlaniumCSP{
             e.printStackTrace();
         }if (cp_csp != null){
             System.out.println("--> SUCCESS! cryptoprovider - CryptoPro (GOST R 34.10-2012) found");
-        }else System.out.println("--> ERROR! cryptoprovider - the security code not found");
+        }else System.out.println("--> ERROR! cryptoprovider - the CryptoPro (GOST R 34.10-2012) not found");
 
         new Button(driver.findElement(By.xpath("//Window/Button[2]"))).click();
-
-//        cert.click();
-//
-//        user.click();
-//
-//        request.click();
-//
-//        ComboBox kb_csp1 = new ComboBox(driver.findElement(By.xpath("//Window/Pane/ComboBox[1]")));
-//        kb_csp1.expand();
-//        kb_csp1.mouseClick(BasePoint.CENTER,0,28);
-//
-//        ComboBox kb_csp2 = new ComboBox(driver.findElement(By.xpath("//Window/Pane/ComboBox[1]")));
-//        kb_csp2.expand();
-//        kb_csp2.mouseClick(BasePoint.CENTER,0,28);
-//
-//        next2.click();
-//        driver.findElement(By.xpath("//*[(@AutomationId ='1012')]")).sendKeys("test");
-//        next2.click();
-//        next2.click();
-
     }
 }

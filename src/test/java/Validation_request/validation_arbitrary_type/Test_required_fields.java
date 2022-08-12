@@ -5,11 +5,10 @@ import FlaNium.WinAPI.webdriver.DesktopOptions;
 import FlaNium.WinAPI.webdriver.FlaNiumDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
 import java.io.File;
 
-public class Required_fields extends InitDriver {
-    public static void main(String[] args) {
+public class Test_required_fields extends InitDriver {
+    public void test_Required_fields() {
         DesktopOptions options = new DesktopOptions();
         options.setApplicationPath(String.valueOf(new File(APP_PATH)));
         options.setLaunchDelay(10);
@@ -20,6 +19,7 @@ public class Required_fields extends InitDriver {
         next.click();
         driver.findElement(By.xpath("//*[(@HelpText='Обязательное поле')]")).sendKeys("Test");
         next.click();
+
         //Проверка обязательных полей
         WebElement group = null;
         try {

@@ -8,8 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import java.io.File;
 
-public class Visible_fields extends InitDriver {
-    public static void main(String[] args) {
+public class Test_visible_fields extends InitDriver {
+    public void test_Visible_fields() {
         DesktopOptions options = new DesktopOptions();
         options.setApplicationPath(String.valueOf(new File(APP_PATH)));
         options.setLaunchDelay(10);
@@ -20,6 +20,7 @@ public class Visible_fields extends InitDriver {
         new TabItem(driver.findElement(By.xpath("//TabItem/ToolBar/Tab/TabItem[1]"))).click();
         new Button(driver.findElement(By.xpath("//TabItem/TabItem/ToolBar[1]/Button[1]"))).click();
         new Button(driver.findElement(By.xpath("//*[(@AutomationId = 'nextbutton')]"))).click();
+
         //Проверка полей
         WebElement group = null;
         try { //a[b = 'value1' and b = 'value2']/@id

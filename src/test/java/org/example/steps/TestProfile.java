@@ -5,7 +5,6 @@ import FlaNium.WinAPI.enums.BasePoint;
 import FlaNium.WinAPI.webdriver.DesktopOptions;
 import FlaNium.WinAPI.webdriver.FlaNiumDriver;
 import org.openqa.selenium.By;
-
 import java.io.File;
 
 public class TestProfile extends InitFlanium {
@@ -17,17 +16,10 @@ public class TestProfile extends InitFlanium {
         options.setDebugConnectToRunningApp(true);
         FlaNiumDriver driver = new FlaNiumDriver(service, options);
 
-        TabItem profile = new TabItem(driver.findElement(By.xpath(" //*[(@Name = 'Профили')] ")));
-        profile.click();
-
-        Button add = new Button(driver.findElement(By.xpath("//TabItem/ToolBar/Button[3]")));
-        add.click();
-
-        CheckBox checkBox = new CheckBox(driver.findElement(By.xpath(" //Window/Group/TabItem/CheckBox[1] ")));
-        checkBox.toggle();
-
-        Button field = new Button(driver.findElement(By.xpath(" //TabItem/ToolBar/Button[3]")));
-        field.invoke();
+        new TabItem(driver.findElement(By.xpath(" //*[(@Name = 'Профили')] "))).click();
+        new Button(driver.findElement(By.xpath("//TabItem/ToolBar/Button[3]"))).click();
+        new CheckBox(driver.findElement(By.xpath(" //Window/Group/TabItem/CheckBox[1] "))).toggle();
+        new Button(driver.findElement(By.xpath(" //TabItem/ToolBar/Button[3]"))).invoke();
 
         driver.findElement(By.xpath("Window/Group/TabItem/Edit")).sendKeys("java_test");
 
@@ -35,25 +27,20 @@ public class TestProfile extends InitFlanium {
         cert.click();
         cert.mouseClick(BasePoint.CENTER_BOTTOM, 0, 10);
 
-        Button ip = new Button(driver.findElement(By.xpath("Window/Group/TabItem/ToolBar[2]/Button[1]")));
-        ip.click();
+        new Button(driver.findElement(By.xpath("Window/Group/TabItem/ToolBar[2]/Button[1]"))).click();
 
-        driver.findElement(By.xpath("Window[2]/Group/TabItem/Edit[1]")).sendKeys("172.17.117.117");
+        driver.findElement(By.xpath("Window[2]/Group/TabItem/Edit[1]"))
+                .sendKeys("172.17.117.117");
 
-        Button select = new Button(driver.findElement(By.xpath("//Window[2]/Group/TabItem/ToolBar/Button[1]")));
-        select.click();
+        new Button(driver.findElement(By.xpath("//Window[2]/Group/TabItem/ToolBar/Button[1]"))).click();
+        new Button(driver.findElement(By.xpath("//Window/Group/TabItem/ToolBar[1]/Button[1]"))).click();
+        new Button(driver.findElement(By.xpath(" //TabItem/Table/Group[1]")))
+                .mouseClick(BasePoint.TOP_LEFT, 100, 80);
 
-        Button save = new Button(driver.findElement(By.xpath("//Window/Group/TabItem/ToolBar[1]/Button[1]")));
-        save.click();
-
-        Button choose = new Button(driver.findElement(By.xpath(" //TabItem/Table/Group[1]")));
-        choose.mouseClick(BasePoint.TOP_LEFT, 100, 80);
-
-        Button connect = new Button(driver.findElement(By.xpath(" //TabItem/ToolBar/Button[1]")));
-        connect.click();
+        new Button(driver.findElement(By.xpath(" //TabItem/ToolBar/Button[1]"))).click();
 
 /*
-        //Проверка подключения
+        //Проверка подключения по IP
 
         Runtime runtime = Runtime.getRuntime();
         Process process;

@@ -9,7 +9,8 @@ import org.openqa.selenium.By;
 import java.io.File;
 
 public class TestProfNet{
-    static String DRIVER_PATH = "C:\\Users\\AdminTst\\IdeaProjects\\FlatTest\\src\\main\\resources\\FlaNium.Desktop.Driver-v1.6.0/FlaNium.Driver.exe";
+    static String DRIVER_PATH = "C:\\Users\\AdminTst\\IdeaProjects\\FlatTest\\src\\main\\resources\\" +
+            "FlaNium.Desktop.Driver-v1.6.0/FlaNium.Driver.exe";
     String APP_PATH = "C:\\Program Files\\Google\\Chrome\\Application/chrome.exe";
     static int driverPort = 9988;
     static FlaNiumDriverService service = new FlaNiumDriverService.Builder()
@@ -28,10 +29,10 @@ public class TestProfNet{
 
         Thread.sleep(2000);
 
-        driver.findElement(By.xpath(" //*[(@Name = 'Адресная строка и строка поиска')] ")).sendKeys("192.168.100.102:8080");
+        driver.findElement(By.xpath(" //*[(@Name = 'Адресная строка и строка поиска')] "))
+                .sendKeys("192.168.100.102:8080");
 
-        Button mouse = new Button(driver.findElement(By.xpath(" //*[(@Name = 'Адресная строка и строка поиска')] ")));
-        mouse.mouseClick(BasePoint.CENTER_LEFT, 0, 25);
-
+        new Button(driver.findElement(By.xpath(" //*[(@Name = 'Адресная строка и строка поиска')] ")))
+                .mouseClick(BasePoint.CENTER_LEFT, 0, 25);
     }
 }
