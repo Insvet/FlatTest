@@ -3,11 +3,13 @@ package Validation_request.validation_arbitrary_type;
 import FlaNium.WinAPI.elements.Button;
 import FlaNium.WinAPI.webdriver.DesktopOptions;
 import FlaNium.WinAPI.webdriver.FlaNiumDriver;
+import io.qameta.allure.Description;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import java.io.File;
 
-public class Test_required_fields extends InitDriver {
+public class TestRequiredFields extends InitDriver {
+    @Description("Проверка обязательных полей")
     public void test_Required_fields() {
         DesktopOptions options = new DesktopOptions();
         options.setApplicationPath(String.valueOf(new File(APP_PATH)));
@@ -20,7 +22,6 @@ public class Test_required_fields extends InitDriver {
         driver.findElement(By.xpath("//*[(@HelpText='Обязательное поле')]")).sendKeys("Test");
         next.click();
 
-        //Проверка обязательных полей
         WebElement group = null;
         try {
             group = driver.findElement(By.xpath("//*[(@Name='Имя файла')]"));
@@ -30,5 +31,4 @@ public class Test_required_fields extends InitDriver {
             System.out.println("--> SUCCESS! Required fields checked");
         }else System.out.println("--> ERROR! The Required fields failed validation");
     }
-
 }

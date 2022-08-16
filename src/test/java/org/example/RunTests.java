@@ -13,8 +13,8 @@ public class RunTests {
 
 //    @Test
     public void compilation() throws InterruptedException {
-//        step1.testImp(); //Импорт профиля сертификатов
-//        step2.profile(); //Создание профиля
+        step1.testImp(); //Импорт профиля сертификатов
+        step2.profile(); //Создание профиля
         step3.testNet(); //Подключения к сайту
     }
 }

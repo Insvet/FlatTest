@@ -4,11 +4,13 @@ import FlaNium.WinAPI.elements.Button;
 import FlaNium.WinAPI.elements.TabItem;
 import FlaNium.WinAPI.webdriver.DesktopOptions;
 import FlaNium.WinAPI.webdriver.FlaNiumDriver;
+import io.qameta.allure.Description;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import java.io.File;
 
-public class Test_visible_fields extends InitDriver {
+public class TestVisibleFields extends InitDriver {
+    @Description("Проверка видимых полей")
     public void test_Visible_fields() {
         DesktopOptions options = new DesktopOptions();
         options.setApplicationPath(String.valueOf(new File(APP_PATH)));
@@ -21,7 +23,6 @@ public class Test_visible_fields extends InitDriver {
         new Button(driver.findElement(By.xpath("//TabItem/TabItem/ToolBar[1]/Button[1]"))).click();
         new Button(driver.findElement(By.xpath("//*[(@AutomationId = 'nextbutton')]"))).click();
 
-        //Проверка полей
         WebElement group = null;
         try { //a[b = 'value1' and b = 'value2']/@id
             group = driver.findElement(By.xpath("//Pane[Text[1][@Name='Фамилия:']" +
@@ -35,7 +36,5 @@ public class Test_visible_fields extends InitDriver {
         }if (group != null){
             System.out.println("--> SUCCESS! Visible fields checked");
         }else System.out.println("--> ERROR! The visible fields failed validation");
-
     }
-
 }
