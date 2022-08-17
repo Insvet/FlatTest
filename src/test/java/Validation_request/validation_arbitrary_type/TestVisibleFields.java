@@ -36,5 +36,7 @@ public class TestVisibleFields extends InitDriver {
         }if (group != null){
             System.out.println("--> SUCCESS! Visible fields checked");
         }else System.out.println("--> ERROR! The visible fields failed validation");
+
+        new Button(driver.findElement(By.xpath("//*[(@AutomationId = 'cancelbutton')]"))).click();
     }
 }

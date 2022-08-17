@@ -1,6 +1,7 @@
 package Validation_request.validation_arbitrary_type;
 
 import FlaNium.WinAPI.elements.Button;
+import FlaNium.WinAPI.elements.TabItem;
 import FlaNium.WinAPI.webdriver.DesktopOptions;
 import FlaNium.WinAPI.webdriver.FlaNiumDriver;
 import io.qameta.allure.Description;
@@ -17,7 +18,10 @@ public class TestRequiredFields extends InitDriver {
         options.setDebugConnectToRunningApp(true);
         FlaNiumDriver driver = new FlaNiumDriver(service, options);
 
-        Button next = new Button(driver.findElement(By.xpath("//Button[2]")));
+        new TabItem(driver.findElement(By.xpath("//ToolBar/Tab/TabItem[3]"))).click();
+        new TabItem(driver.findElement(By.xpath("//TabItem/ToolBar/Tab/TabItem[1]"))).click();
+        new Button(driver.findElement(By.xpath("//TabItem/TabItem/ToolBar[1]/Button[1]"))).click();
+        Button next = new Button(driver.findElement(By.xpath("//*[(@AutomationId = 'nextbutton')]")));
         next.click();
         driver.findElement(By.xpath("//*[(@HelpText='Обязательное поле')]")).sendKeys("Test");
         next.click();
@@ -30,5 +34,7 @@ public class TestRequiredFields extends InitDriver {
         }if (group != null){
             System.out.println("--> SUCCESS! Required fields checked");
         }else System.out.println("--> ERROR! The Required fields failed validation");
+
+        new Button(driver.findElement(By.xpath("//*[(@AutomationId = 'cancelbutton')]"))).click();
     }
 }

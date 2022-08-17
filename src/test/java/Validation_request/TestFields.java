@@ -3,7 +3,6 @@ package Validation_request;
 import Validation_request.validation_arbitrary_type.*;
 import org.junit.Test;
 
-
 public class TestFields {
     static TestVisibleFields test_Visible_fields = new TestVisibleFields();
     static TestRequiredFields test_required_fields = new TestRequiredFields();

@@ -1,7 +1,6 @@
 package Validation_request.validation_arbitrary_type;
 
 import FlaNium.WinAPI.webdriver.FlaNiumDriverService;
-
 import java.io.File;
 
 public class InitDriver {

@@ -1,6 +1,7 @@
 package Validation_request.validation_arbitrary_type;
 
 import FlaNium.WinAPI.elements.Button;
+import FlaNium.WinAPI.elements.TabItem;
 import FlaNium.WinAPI.webdriver.DesktopOptions;
 import FlaNium.WinAPI.webdriver.FlaNiumDriver;
 import io.qameta.allure.Description;
@@ -18,7 +19,11 @@ public class TestInputPositive extends InitDriver{
         options.setDebugConnectToRunningApp(true);
         FlaNiumDriver driver = new FlaNiumDriver(service, options);
 
-        new Button(driver.findElement(By.xpath("//Window/Button[1]"))).click();
+        new TabItem(driver.findElement(By.xpath("//ToolBar/Tab/TabItem[3]"))).click();
+        new TabItem(driver.findElement(By.xpath("//TabItem/ToolBar/Tab/TabItem[1]"))).click();
+        new Button(driver.findElement(By.xpath("//TabItem/TabItem/ToolBar[1]/Button[1]"))).click();
+        Button next = new Button(driver.findElement(By.xpath("//*[(@AutomationId = 'nextbutton')]")));
+        next.click();
 
         driver.findElement(By.xpath(surname)).sendKeys("ТестФамилия");
         driver.findElement(By.xpath(givenName)).sendKeys("ТестОтчество");
@@ -34,7 +39,6 @@ public class TestInputPositive extends InitDriver{
         driver.findElement(By.xpath(snils)).sendKeys("01234567891");
         driver.findElement(By.xpath(ogrn)).sendKeys("0123456789123");
 
-        Button next = new Button(driver.findElement(By.xpath("//*[(@AutomationId = 'nextbutton')]")));
         next.click();
         next.click();
 

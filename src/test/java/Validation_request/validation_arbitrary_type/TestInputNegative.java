@@ -5,6 +5,8 @@ import FlaNium.WinAPI.elements.TabItem;
 import FlaNium.WinAPI.webdriver.DesktopOptions;
 import FlaNium.WinAPI.webdriver.FlaNiumDriver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
 import java.io.File;
 import static Validation_request.validation_arbitrary_type.Variables.*;
 
@@ -158,5 +160,26 @@ public class TestInputNegative extends InitDriver {
         driver.findElement(By.xpath(ogrn)).sendKeys(words);
         driver.findElement(By.xpath(ogrn)).sendKeys(space);
         driver.findElement(By.xpath(ogrn)).clear();
+
+        next.click();
+        next.click();
+
+        WebElement group = null;
+        try {
+            group = driver.findElement(By.xpath("//List[ListItem[1]/Text[2][@Name='']" +
+                    "and ListItem[2]/Text[2][@Name=''] and ListItem[3]/Text[2][@Name='ТестОбщееИмя']" +
+                    "and ListItem[4]/Text[2][@Name=''] and ListItem[5]/Text[2][@Name='']" +
+                    "and ListItem[6]/Text[2][@Name=''] and ListItem[7]/Text[2][@Name='ru']" +
+                    "and ListItem[8]/Text[2][@Name=''] and ListItem[9]/Text[2][@Name='']" +
+                    "and ListItem[10]/Text[2][@Name=''] and ListItem[11]/Text[2][@Name='']" +
+                    "and ListItem[12]/Text[2][@Name=''] and ListItem[13]/Text[2][@Name='']" +
+                    "and ListItem[14]/Text[2][@Name='']]"));
+        }catch (Exception e){
+            e.printStackTrace();
+        }if (group != null){
+            System.out.println("--> SUCCESS! Input Negative test passed");
+        }else System.out.println("--> ERROR! Input Negative test failed");
+
+        new Button(driver.findElement(By.xpath("//*[(@AutomationId = 'cancelbutton')]"))).click();
     }
 }
