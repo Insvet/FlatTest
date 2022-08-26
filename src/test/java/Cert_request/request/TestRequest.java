@@ -4,8 +4,6 @@ import FlaNium.WinAPI.elements.*;
 import FlaNium.WinAPI.enums.BasePoint;
 import FlaNium.WinAPI.webdriver.DesktopOptions;
 import FlaNium.WinAPI.webdriver.FlaNiumDriver;
-import io.qameta.allure.Description;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import java.io.File;

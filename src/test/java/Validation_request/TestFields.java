@@ -1,6 +1,6 @@
 package Validation_request;
 
-import Validation_request.validation_arbitrary_type.*;
+import Validation_request.arbitrary_type.*;
 import org.junit.Test;
 
 public class TestFields {
