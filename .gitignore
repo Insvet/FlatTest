@@ -1,5 +1,7 @@
 # Project exclude paths
 /target/
+
+# Environments
 .idea/
 .allure/
 allure-results/
