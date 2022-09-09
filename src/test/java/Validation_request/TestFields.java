@@ -2,7 +2,9 @@ package Validation_request;
 
 import Validation_request.arbitrary_type.*;
 import Validation_request.individual.*;
+import io.qameta.allure.Description;
 import org.junit.Test;
+
 
 public class TestFields {
     static TestVisibleFields_arbitrary test_Visible_fields = new TestVisibleFields_arbitrary();
@@ -18,6 +20,7 @@ public class TestFields {
     static TestLongWords_individual testLongWords = new TestLongWords_individual();
 
     @Test
+    @Description("test")
     public void Step1() {
         test_Visible_fields.test_Visible_fields();
     }
