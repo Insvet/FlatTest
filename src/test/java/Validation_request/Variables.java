@@ -26,10 +26,10 @@ public class Variables {
     public static final String specialSymbols = "!@#$%^&*()-=";
     public static final String date = "10/10/10";
     public static final String numbers = "0123456789";
-    public static final String space = "lorem100";
+    public static final String space = "    ";
     public static final String words = "Lorem ipsum dolor sit amet consectetuer adipiscing elit Aenean commodo ligula eget" +
             "dolor Aenean massa";
-    public static final String words1025 =" Lorem ipsum dolor sit amet consectetuer adipiscing elit Aenean commodo ligula " +
+    public static final String words1025 = " Lorem ipsum dolor sit amet consectetuer adipiscing elit Aenean commodo ligula " +
             "eget dolor Aenean massa Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus " +
             "mus Donec quam felis ultricies nec pellentesque eu pretium quis sem Nulla consequat massa quis enim Donec " +
             "pede justo fringilla vel aliquet nec vulputate eget arcu In enim justo rhoncus ut imperdiet a venenatis " +
@@ -41,7 +41,19 @@ public class Variables {
             "vulputate eget arcu In enim justo rhoncus ut imperdiet a venenatis vitae justo Nullam dictum felis eu ped " +
             "mollis pretium Inter ";
 
-    public static final String words129 =" Lorem ipsum dolor sit amet consectetuer adipiscing elit Aenean commodo ligula " +
+    public static final String words1023 = " Lorem ipsum dolor sit amet consectetuer adipiscing elit Aenean commodo ligula " +
+            "eget dolor Aenean massa Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus " +
+            "mus Donec quam felis ultricies nec pellentesque eu pretium quis sem Nulla consequat massa quis enim Donec " +
+            "pede justo fringilla vel aliquet nec vulputate eget arcu In enim justo rhoncus ut imperdiet a venenatis " +
+            "vitae justo Nullam dictum felis eu pede mollis pretium Integer tincidunt Cras dapibus Vivamus " +
+            "elementum semper nisi Aenean vulputate eleifend tellus Aenean leo ligula porttitor eu Lorem ipsum " +
+            "dolor sit amet consectetuer adipiscing elit Aenean commodo ligula eget dolor Aenean massa Cum sociis " +
+            "natoque penatibus et magnis dis parturient montes nascetur ridiculus mus Donec quam felis ultricies nec " +
+            "pellentesque eu pretium quis sem Nulla consequat massa quis enim Donec pede justo fringilla vel aliquet nec " +
+            "vulputate eget arcu In enim justo rhoncus ut imperdiet a venenatis vitae justo Nullam dictum felis eu ped " +
+            "mollis pretium Int ";
+
+    public static final String words129 = " Lorem ipsum dolor sit amet consectetuer adipiscing elit Aenean commodo ligula " +
             "eget dolor Aenean massa Cum sociis natoque penati ";
 
     public static final String testMail129 = " userfkvjmlsdzjkhrguihnsrgjndzxjsdujfhuisefuih32873724fliughesr22@hijagsia" +
